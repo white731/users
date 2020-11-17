@@ -3,13 +3,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new()
   end
 
   def create
     @user = User.new(user_params)
-
     #Why is this Necessary??
     if @user.save
     redirect_to users_path
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @user = User.find(params[:id])
   end
 
@@ -33,11 +36,11 @@ class UsersController < ApplicationController
   end
     
   def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path
   end
-  def edit
-    @user = User.find(params[:id])
 
-  end
 
   private
 
