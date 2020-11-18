@@ -14,5 +14,18 @@ require 'faker'
     gender: Faker::Gender.binary_type,
     alive: rand(2).odd? ? true : false
     )
+        num_kids = rand(1...5)
+        names = [
+            Faker::FunnyName.name,
+            Faker::FunnyName.name,
+            Faker::FunnyName.name,
+            Faker::FunnyName.name,
+            Faker::FunnyName.name,
+        ]
+
+        num_kids.times do |i|
+                user.children.create(name: names[i])
+        end
 
 end
+
