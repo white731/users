@@ -3,3 +3,7 @@
 <p><%=@user.gender%></p>
 <p><%=@user.alive%></p>
 <p>ID:<%=@user.id%></p>
+<p>Kids:<%@children.each do |kids|%>
+<%=kids.name %>
+<%end%>
+</p>
